@@ -15,5 +15,9 @@
     "jade": "~1.3.0",
     "mysql": "~2.5.0",
     "express-myconnection": "~1.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gabri3l3onardo/PruebasNodeJS"
   }
 }
