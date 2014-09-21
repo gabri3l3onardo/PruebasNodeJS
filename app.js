@@ -26,9 +26,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(express.methodOverride());
 app.use(cookieParser());
+app.set('port', (process.env.PORT || 5000))
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(
+/*app.use(
     connection(mysql,{
         host: 'localhost',
         user: 'root',
@@ -36,7 +37,7 @@ app.use(
         port: '3306',
         database: 'nodejs'
     },'request')
-);
+);*/
 
 app.get('/', routes.index);
 app.get('/users', users.list);
@@ -48,9 +49,13 @@ app.get('/users/:id',users.getId);
 
 app.use(app.router);
 
-http.createServer(app).listen(app.get('port'),'10.200.82.185', function(){
+app.listen(app.get('port'), function() {
+  console.log("Node app is running at localhost:" + app.get('port'))
+})
+
+/*http.createServer(app).listen(app.get('port'),'10.200.82.185', function(){
     console.log('Express server listening on port '+app.get('port'));
-});
+});*/
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
